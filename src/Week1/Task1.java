@@ -2,7 +2,7 @@ package Week1;
 
 public class Task1 {
     public static void main(String[] args) {
-        int a=78;
+        int a = 78;
         if(a>25&&a<100){
             System.out.println("Число "+a+" входит в интервал (25;100)");
         }
