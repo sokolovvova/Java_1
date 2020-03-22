@@ -19,5 +19,6 @@ public class Task3 {
         else {
             System.out.println("числа a и b на одинаковом расстоянии от 10.  a="+a+" b="+b);
         }
+        
     }
 }
