@@ -21,15 +21,17 @@ public class Menu {
                if(k==1) continue;
                if(k==2) break;
            }
-           if(point==2){
+           else if(point==2){
                CharCount.Count();
                int k = SecondMenu();
                if(k==1) continue;
                if(k==2) break;
            }
            else if(point==3) {
-               System.out.println("В разработке.\n");
-               continue;
+               Poker.CardDistr();
+               int k = SecondMenu();
+               if(k==1) continue;
+               if(k==2) break;
            }
        }
     }

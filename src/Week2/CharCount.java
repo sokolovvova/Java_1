@@ -3,9 +3,6 @@ package Week2;
 import java.util.Scanner;
 
 public class CharCount {
-    public static void main(String[] args) {
-
-    }
     public static void Count(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите текст.\n> ");

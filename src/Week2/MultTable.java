@@ -1,8 +1,6 @@
 package Week2;
 
 public class MultTable {
-    public static void main(String[] args) {
-    }
     public static void TableDraw(){
         System.out.println("Таблица умножения:");
         for(int i=1;i<10;i++){
