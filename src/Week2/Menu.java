@@ -15,14 +15,30 @@ public class Menu {
                System.out.println("Завершение работы программы.");
                break;
            }
-           else if(point==1||point==2||point==3) {
+           else if(point==1){
+               int n;
+               MultTable.TableDraw();
+              while(true){
+                  n=MenuDrawPoint();
+                  if(n==1||n==2) break;
+                  else{
+                      System.out.println("Ошибка. введите пункт от 1 до 2.\n");
+                      continue;
+                  }
+              }
+               if(n==1) continue;
+               else if(n==2) {
+                   System.out.println("Завершение работы программы.");
+                   break;
+               }
+
+           }
+           else if(point==2||point==3) {
                System.out.println("В разработке.\n");
                continue;
            }
        }
     }
-
-
     public static int MenuDraw() {
         Scanner scanner = new Scanner(System.in);
         int n;
@@ -31,6 +47,15 @@ public class Menu {
         System.out.println("3.Покер.");
         System.out.println("4.Выход.");
         System.out.print("\nВыберите пункт меню (1..4):\n> ");
+        n=scanner.nextInt();
+        return n;
+    }
+    public static int MenuDrawPoint(){
+        Scanner scanner = new Scanner(System.in);
+        int n;
+        System.out.println("\n1.Меню.");
+        System.out.println("2.Выход.");
+        System.out.print("\nВыберите пункт меню (1..2):\n> ");
         n=scanner.nextInt();
         return n;
     }
