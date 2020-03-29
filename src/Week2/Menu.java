@@ -16,24 +16,18 @@ public class Menu {
                break;
            }
            else if(point==1){
-               int n;
                MultTable.TableDraw();
-              while(true){
-                  n=MenuDrawPoint();
-                  if(n==1||n==2) break;
-                  else{
-                      System.out.println("Ошибка. введите пункт от 1 до 2.\n");
-                      continue;
-                  }
-              }
-               if(n==1) continue;
-               else if(n==2) {
-                   System.out.println("Завершение работы программы.");
-                   break;
-               }
-
+               int k = SecondMenu();
+               if(k==1) continue;
+               if(k==2) break;
            }
-           else if(point==2||point==3) {
+           if(point==2){
+               CharCount.Count();
+               int k = SecondMenu();
+               if(k==1) continue;
+               if(k==2) break;
+           }
+           else if(point==3) {
                System.out.println("В разработке.\n");
                continue;
            }
@@ -58,5 +52,22 @@ public class Menu {
         System.out.print("\nВыберите пункт меню (1..2):\n> ");
         n=scanner.nextInt();
         return n;
+    }
+    public static int SecondMenu(){
+        int n;
+        while(true){
+            n=MenuDrawPoint();
+            if(n==1||n==2) break;
+            else{
+                System.out.println("Ошибка. введите пункт от 1 до 2.\n");
+                continue;
+            }
+        }
+        if(n==1) return 1;
+        else if(n==2) {
+            System.out.println("Завершение работы программы.");
+            return 2;
+        }
+        return -1;
     }
 }
