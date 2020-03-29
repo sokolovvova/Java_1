@@ -3,7 +3,7 @@ package Week1;
 public class Task3 {
     public static void main(String[] args) {
         float a =-8.5f;
-        float b =11.45f;
+        float b =28.5f;
         float difa=a-10;
         float difb=b-10;
 
