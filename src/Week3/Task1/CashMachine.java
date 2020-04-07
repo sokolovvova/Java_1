@@ -34,7 +34,7 @@ public class CashMachine {
     public boolean outMoney(int sum){
         Scanner scanner = new Scanner(System.in);
         int[][] outVar = new int[110][3];
-        int iOut=0,nMin=cash20+cash50+cash100,n,iMin=0;
+        int iOut=0;
 
         for(int c20=0;c20<=cash20;c20++){
             for (int c50=0;c50<=cash50;c50++){
@@ -43,16 +43,13 @@ public class CashMachine {
                         outVar[iOut][0]=c20;
                         outVar[iOut][1]=c50;
                         outVar[iOut][2]=c100;
-                        n=c20+c50+c100;
-                        if(n<nMin){
-                            nMin=n;
-                            iMin=iOut;
-                        }
                         iOut++;
                     }
                     if (iOut>7) break;
                 }
+                if (iOut>7) break;
             }
+            if (iOut>7) break;
         }
         if(sum>balance){
             System.out.println("В банкомате недостаточно средств.");
@@ -64,9 +61,7 @@ public class CashMachine {
             return false;
         }
 
-        //предлагаются варианты выдачи купюр, если их больше 5, деньги выдаются с использованием минимального количества купюр
-
-        else if(iOut>1&&iOut<=5){
+        else {
             System.out.println("Выберите какими купюрами хотите получить деньги (0.."+(iOut-1)+"):");
             for(int iOut2=0;iOut2<iOut;iOut2++){
                 System.out.println(iOut2+". 20="+outVar[iOut2][0]+"шт, 50="+outVar[iOut2][1]+"шт, 100="+outVar[iOut2][2]+"шт.");
@@ -81,15 +76,5 @@ public class CashMachine {
             this.balance=cash20*20+cash50*50+cash100*100;
             return true;
         }
-        else{
-            cash20-=outVar[iMin][0];
-            cash50-=outVar[iMin][1];
-            cash100-=outVar[iMin][2];
-            System.out.println("Выдано: 20="+outVar[iMin][0]+"шт, "+"50="+outVar[iMin][1]+"шт, 100="+outVar[iMin][2]+"шт.");
-            this.balance=cash20*20+cash50*50+cash100*100;
-            return true;
-
-        }
-
     }
 }
