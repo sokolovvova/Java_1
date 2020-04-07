@@ -22,11 +22,13 @@ public class CashMachine {
         return true;
     }
 
-    public void cashBalance(){
+    public boolean cashBalance(){
         System.out.println("Баланс купюр в банкомате: ");
         System.out.print("20="+cash20+"шт, ");
         System.out.print("50="+cash50+"шт, ");
-        System.out.println("100="+cash100+"шт.\n");
+        System.out.print("100="+cash100+"шт.");
+        System.out.println("Всего="+balance+"\n");
+        return true;
     }
 
     public boolean outMoney(int sum){
@@ -83,6 +85,7 @@ public class CashMachine {
             cash50-=outVar[variant][1];
             cash100-=outVar[variant][2];
             System.out.println("Выдано: 20="+outVar[variant][0]+"шт, "+"50="+outVar[variant][1]+"шт, 100="+outVar[variant][2]+"шт.");
+            this.balance=cash20*20+cash50*50+cash100*100;
             return true;
         }
         else{
@@ -90,6 +93,7 @@ public class CashMachine {
             cash50-=outVar[iMin][1];
             cash100-=outVar[iMin][2];
             System.out.println("Выдано: 20="+outVar[iMin][0]+"шт, "+"50="+outVar[iMin][1]+"шт, 100="+outVar[iMin][2]+"шт.");
+            this.balance=cash20*20+cash50*50+cash100*100;
             return true;
 
         }
