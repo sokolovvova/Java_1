@@ -27,15 +27,14 @@ public class CashMachine {
         System.out.print("20="+cash20+"шт, ");
         System.out.print("50="+cash50+"шт, ");
         System.out.print("100="+cash100+"шт, ");
-        System.out.println("Всего="+balance+".\n");
+        System.out.println("Баланс="+balance+".\n");
         return true;
     }
 
     public boolean outMoney(int sum){
         Scanner scanner = new Scanner(System.in);
-        int[][] cashVar = new int[(cash20+1)*(cash50+1)*(cash100+1)][3];
         int[][] outVar = new int[110][3];
-        int i=0,iOut=0,nMin=cash20+cash50+cash100,n,iMin=0;
+        int iOut=0,nMin=cash20+cash50+cash100,n,iMin=0;
 
         for(int c20=0;c20<=cash20;c20++){
             for (int c50=0;c50<=cash50;c50++){
@@ -51,7 +50,7 @@ public class CashMachine {
                         }
                         iOut++;
                     }
-                    if (iOut>10) break;
+                    if (iOut>7) break;
                 }
             }
         }
@@ -60,10 +59,6 @@ public class CashMachine {
             return false;
         }
 
-        //возможные варианты выдачи нужной суммы
-        for(int[] ar:cashVar){
-
-        }
         if(iOut==0){
             System.out.println("Выдать данную сумму имеющимися купюрами невозможно.");
             return false;
@@ -96,13 +91,5 @@ public class CashMachine {
 
         }
 
-     /*   if(balance<sum){
-            array[0]=0;
-            return array;
-        }
-        else {
-            return array;
-            //under development
-        }*/
     }
 }
