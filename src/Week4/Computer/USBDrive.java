@@ -1,7 +1,8 @@
-package ClassTasks.Computer;
+package Week4.Computer;
+
 import java.util.Scanner;
 
-public class HDD implements Drive {
+public class USBDrive implements Drive {
 
     Scanner scanner = new Scanner(System.in);
 
@@ -9,14 +10,13 @@ public class HDD implements Drive {
     String data;
     DataType type;
 
-    public HDD(String d,String t){
+    public USBDrive(String d,String t){
         this.data=d;
         type =DataType.valueOf(t.toUpperCase());
     }
 
 
-    public void read(boolean isExist){
-        if(isExist==true){
+    public void read(){
             switch(type){
                 case FILE:
                     System.out.print("читается файл...  ");
@@ -29,25 +29,17 @@ public class HDD implements Drive {
                     break;
             }
             System.out.println(data);
-        }
-        else System.out.println("HDD dont put in");
     }
-    public void write(boolean isExist){
-        if(isExist==true) {
+    public void write(){
             String[] str = getDataFromKB();
             data=str[0];
             type=DataType.valueOf(str[1].toUpperCase());
-        }
-        else System.out.println("HDD dont put in");
-
     }
-
-
 
 
     public String[] getDataFromKB(){
         String[] s=new String[2];
-        System.out.println("Введите данные которые необходимо записать на HDD: ");
+        System.out.println("Введите данные которые необходимо записать на флешку: ");
         s[0] =scanner.nextLine();
 
         System.out.println("Введите тип файла (movie,audio,file):");

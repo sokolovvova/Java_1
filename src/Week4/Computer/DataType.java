@@ -1,4 +1,4 @@
-package ClassTasks.Computer;
+package Week4.Computer;
 
 public enum DataType {
     MOVIE,
